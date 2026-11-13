@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.truzenlite",
+      "sha256_cert_fingerprints": [
+        "B0:EC:B7:5F:6E:DA:E8:BF:5F:53:1C:E4:D3:00:30:EC:15:B8:E6:44:78:66:80:72:95:7C:DD:6D:46:EE:77:97"
+      ]
+    }
+  }
+]
