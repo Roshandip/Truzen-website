@@ -1,0 +1,8 @@
+
+{
+  "version": "1.0.0",
+  "build_number": 1,
+  "update_url": "https://roshandip.github.io/Truzen-website/",
+  "force_update": false,
+  "message": "A new Truzen update is available!"
+}
