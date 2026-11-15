@@ -4,194 +4,1044 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Truzen - Connect Your World</title>
-  <meta name="theme-color" content="#090909">
-  <meta name="description" content="Join Truzen, connect with people, share moments and discover content.">
+  <meta name="theme-color" content="#080610">
+  <meta name="description" content="Truzen is a place to share moments, discover Reels and connect with people.">
+  <title>Truzen — Connect Your World</title>
 
   <style>
+    :root {
+      --bg: #080610;
+      --surface: #110d1b;
+      --surface2: #171124;
+      --purple: #8048ff;
+      --purple2: #a477ff;
+      --text: #ffffff;
+      --muted: #aaa3b8;
+      --border: rgba(164, 119, 255, .19);
+    }
+
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 40px 18px;
-      background: #090909;
-      color: #ffffff;
+      background: var(--bg);
+      color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
     }
 
     .container {
-      width: 100%;
-      max-width: 650px;
+      width: min(1160px, 90%);
       margin: auto;
+    }
+
+    .gradient-text {
+      background: linear-gradient(110deg, #a477ff, #7438ff, #c49cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section {
+      padding: 100px 0;
+      scroll-margin-top: 85px;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 48px;
       text-align: center;
     }
 
-    .logo {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 22px;
+    .section-heading h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .section-heading p,
+    .feature-card p,
+    .security-card p,
+    .about-copy p {
+      color: var(--muted);
+    }
+
+    .eyebrow {
+      color: var(--purple2);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 13px;
+    }
+
+    /* Navigation */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 6, 16, .94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 78px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      background: #ffffff;
-      color: #090909;
-      border-radius: 22px;
-      font-size: 38px;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 27px;
       font-weight: 800;
+      letter-spacing: -.8px;
     }
 
-    h1 {
-      font-size: 36px;
-      margin: 0 0 12px;
-      letter-spacing: 1px;
+    .brand-mark {
+      width: 37px;
+      height: 37px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(140deg, #a34bff, #5421db);
+      clip-path: polygon(0 0, 100% 0, 78% 37%, 52% 37%, 35% 100%, 12% 100%, 30% 37%, 0 37%);
+      filter: drop-shadow(0 0 12px #8145ff);
     }
 
-    .description {
-      color: #aaaaaa;
-      line-height: 1.7;
-      font-size: 15px;
-      margin: 0 auto 28px;
-      max-width: 480px;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
     }
 
-    .referral {
+    .nav-links a {
+      color: #c9c3d2;
+      font-size: 14px;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--purple2);
+    }
+
+    .nav-cta {
+      padding: 10px 19px;
+      border: 1px solid var(--purple);
+      border-radius: 30px;
+      color: white !important;
+    }
+
+    .menu-toggle {
       display: none;
-      background: #202020;
-      border: 1px solid #333333;
-      border-radius: 12px;
-      padding: 14px;
-      margin: 0 auto 22px;
-      max-width: 400px;
+      color: white;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 8px 12px;
+      cursor: pointer;
     }
 
-    .referral small {
+    /* Buttons */
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(110deg, #934cff, #6428ed);
+      box-shadow: 0 8px 28px rgba(111, 52, 255, .24);
+    }
+
+    .btn-outline {
+      color: white;
+      border-color: var(--border);
+      background: rgba(255, 255, 255, .025);
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 690px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 75% 42%, rgba(105, 43, 231, .23), transparent 40%),
+        radial-gradient(ellipse at 12% 85%, rgba(100, 36, 200, .12), transparent 38%);
+    }
+
+    .hero-content {
+      padding: 85px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid var(--border);
+      background: rgba(130, 75, 255, .08);
+      border-radius: 30px;
+      padding: 7px 15px;
+      font-size: 13px;
+      color: #d3c4ff;
+      margin-bottom: 23px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 6.5vw, 78px);
+      line-height: 1.06;
+      letter-spacing: -3px;
+      margin-bottom: 23px;
+    }
+
+    .hero-content>p {
+      color: #b6aec3;
+      max-width: 510px;
+      font-size: 17px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      color: #91899d;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .hero-art {
+      min-height: 540px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .glow-circle {
+      position: absolute;
+      width: 390px;
+      height: 390px;
+      border: 1px solid rgba(156, 100, 255, .45);
+      border-radius: 50%;
+      box-shadow: 0 0 80px rgba(121, 60, 255, .19);
+    }
+
+    .hero-phone {
+      width: 250px;
+      height: 485px;
+      background: linear-gradient(145deg, #292036, #08070c 45%);
+      border: 5px solid #51416b;
+      border-radius: 37px;
+      padding: 12px;
+      transform: rotate(7deg);
+      box-shadow: 0 25px 90px #000a, 0 0 65px rgba(117, 58, 255, .28);
+      position: relative;
+      z-index: 2;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .phone-screen {
+      height: 100%;
+      background: #0d0a14;
+      border-radius: 26px;
+      overflow: hidden;
+      padding: 15px 11px;
+    }
+
+    .phone-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      margin-bottom: 18px;
+    }
+
+    .phone-brand {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .phone-tabs {
+      display: flex;
+      gap: 19px;
+      font-size: 10px;
+      color: #aaa;
+      margin-bottom: 15px;
+    }
+
+    .phone-post {
+      height: 280px;
+      border-radius: 13px;
+      background:
+        linear-gradient(0deg, rgba(0, 0, 0, .75), transparent 55%),
+        linear-gradient(135deg, #563d8a, #e39a9b 45%, #242d54);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 13px;
+      font-size: 11px;
+    }
+
+    .phone-post strong {
+      font-size: 13px;
+    }
+
+    .phone-actions {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 17px;
+      font-size: 15px;
+    }
+
+    .floating-label {
+      position: absolute;
+      z-index: 3;
+      padding: 12px 17px;
+      background: #171023;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: #e7dcff;
+      font-size: 13px;
+      box-shadow: 0 10px 40px #0008;
+    }
+
+    .label-one {
+      top: 110px;
+      left: 0;
+    }
+
+    .label-two {
+      bottom: 105px;
+      right: 0;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(7deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(5deg);
+      }
+    }
+
+    /* Trust strip */
+
+    .trust-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: #0d0915;
+      padding: 23px 0;
+    }
+
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 45px;
+      flex-wrap: wrap;
+      color: #c6bbd8;
+      font-size: 14px;
+    }
+
+    .trust-items span {
+      color: var(--purple2);
+      margin-right: 7px;
+    }
+
+    /* Features */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: linear-gradient(145deg, #171123, #0e0b16);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 28px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-7px);
+      border-color: #8b58ff;
+    }
+
+    .feature-icon {
+      width: 49px;
+      height: 49px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: rgba(129, 75, 255, .16);
+      color: #b493ff;
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+    }
+
+    /* Demo */
+
+    .demo-section {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(99, 45, 194, .15), transparent 65%),
+        #0b0812;
+    }
+
+    .demo-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .demo-copy h2 {
+      font-size: clamp(34px, 4vw, 48px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .demo-copy p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .demo-points {
+      display: grid;
+      gap: 14px;
+      color: #d5cce3;
+      font-size: 14px;
+    }
+
+    .demo-points span {
+      color: #a477ff;
+      margin-right: 8px;
+    }
+
+    .demo-stage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .demo-device {
+      width: 275px;
+      min-height: 490px;
+      border: 5px solid #504064;
+      border-radius: 35px;
+      background: #0c0912;
+      padding: 12px;
+      box-shadow: 0 0 65px rgba(126, 70, 255, .18);
+    }
+
+    .demo-screen {
+      min-height: 452px;
+      background: #15101f;
+      border-radius: 23px;
+      padding: 17px 13px;
+      overflow: hidden;
+    }
+
+    .demo-screen-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .demo-screen-content {
+      min-height: 355px;
+    }
+
+    .demo-scene {
+      display: none;
+      animation: appear .3s ease;
+    }
+
+    .demo-scene.active {
       display: block;
-      color: #aaaaaa;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .demo-image {
+      height: 225px;
+      border-radius: 14px;
+      background: linear-gradient(150deg, #67479b, #d58c9a 48%, #24385a);
+      display: grid;
+      place-items: center;
+      font-size: 50px;
+      margin-bottom: 14px;
+    }
+
+    .demo-reel {
+      height: 310px;
+      border-radius: 14px;
+      background: linear-gradient(160deg, #a16bd3, #252d52 55%, #e0a17d);
+      display: grid;
+      place-items: center;
+      font-size: 45px;
+      margin-bottom: 12px;
+    }
+
+    .demo-profile {
+      text-align: center;
+      padding: 17px 8px;
+    }
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: linear-gradient(140deg, #a477ff, #5323c9);
+      font-size: 27px;
+    }
+
+    .demo-profile p,
+    .demo-scene p {
+      color: #b9aecb;
+      font-size: 12px;
+    }
+
+    .demo-scene h4 {
+      margin-bottom: 5px;
+    }
+
+    .demo-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      width: 145px;
+    }
+
+    .demo-tab {
+      text-align: left;
+      padding: 12px 14px;
+      color: #c7bdd8;
+      background: #151020;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .demo-tab.active {
+      color: white;
+      border-color: #8e5aff;
+      background: #281747;
+    }
+
+    .demo-status {
+      color: #a477ff;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .about-panel {
+      background: linear-gradient(145deg, #1b1230, #0d0a14);
+      border: 1px solid var(--border);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .about-symbol {
+      font-size: 90px;
+      line-height: 1.3;
+      font-weight: 900;
+      color: #9a68ff;
+      text-shadow: 0 0 40px #7c3cff;
+    }
+
+    .about-copy h2 {
+      font-size: 40px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .about-copy p {
+      margin-bottom: 16px;
+    }
+
+    /* Security */
+
+    .security-section {
+      background: #0d0915;
+    }
+
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 19px;
+    }
+
+    .security-card {
+      padding: 26px;
+      background: #151020;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .security-card .feature-icon {
+      margin-bottom: 12px;
+    }
+
+    .security-card h3 {
       margin-bottom: 8px;
     }
 
-    .referral strong {
-      color: #ffffff;
-      letter-spacing: 2px;
-    }
-
-    .button {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      background: #ffffff;
-      color: #090909;
-      text-decoration: none;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-
-    .open-button {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    .download-section {
-      margin-top: 65px;
-    }
-
-    .download-section h2 {
-      font-size: 27px;
-      margin-bottom: 10px;
-    }
-
-    .section-description {
-      color: #999999;
+    .security-card p {
       font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 25px;
+    }
+
+    .security-note {
+      margin-top: 25px;
+      color: #93889f;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* Referral */
+
+    .referral-panel {
+      display: none;
+      max-width: 650px;
+      margin: 0 auto 30px;
+      padding: 25px;
+      border: 1px solid rgba(164, 119, 255, .4);
+      border-radius: 17px;
+      background: linear-gradient(145deg, #211437, #110d1b);
+      text-align: center;
+    }
+
+    .referral-panel.visible {
+      display: block;
+    }
+
+    .referral-code {
+      display: inline-block;
+      margin: 12px 0;
+      padding: 10px 18px;
+      border: 1px dashed #9b72ff;
+      border-radius: 9px;
+      color: #d7c5ff;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      overflow-wrap: anywhere;
+    }
+
+    .referral-panel p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .referral-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .referral-message {
+      min-height: 20px;
+      margin-top: 12px;
+      color: #c4aaff;
+      font-size: 12px;
+    }
+
+    /* Download */
+
+    .download-panel {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 65px 25px;
+      border-radius: 24px;
+      border: 1px solid rgba(157, 104, 255, .4);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(125, 63, 255, .25), transparent 65%),
+        #120d1e;
+    }
+
+    .download-symbol {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 21px;
+      background: linear-gradient(140deg, #a34bff, #5421db);
+      font-size: 37px;
+      font-weight: 900;
+      box-shadow: 0 0 40px #793bff55;
+    }
+
+    .download-panel h2 {
+      font-size: clamp(32px, 5vw, 45px);
+      margin-bottom: 12px;
+    }
+
+    .download-panel>p {
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto 25px;
     }
 
     .download-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
       text-align: left;
     }
 
     .download-card {
-      background: #151515;
-      border: 1px solid #292929;
-      border-radius: 17px;
-      padding: 20px;
+      padding: 24px;
+      background: #171124;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .download-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--purple2);
+    }
+
+    .recommended {
+      display: block;
+      color: #b99aff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
     }
 
     .download-card h3 {
-      font-size: 17px;
-      margin: 0 0 10px;
+      font-size: 19px;
+      margin-bottom: 9px;
     }
 
     .download-card p {
-      color: #999999;
+      min-height: 68px;
+      color: var(--muted);
       font-size: 13px;
-      line-height: 1.6;
-      min-height: 42px;
-      margin: 0 0 18px;
+      margin-bottom: 18px;
     }
 
     .apk-button {
       display: block;
       width: 100%;
-      padding: 13px 10px;
+      padding: 12px;
       text-align: center;
-      background: #5428E8;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: bold;
-      transition: 0.2s;
+      border-radius: 9px;
+      color: white;
+      background: linear-gradient(110deg, #934cff, #6428ed);
+      font-size: 13px;
+      font-weight: 700;
+      transition: .2s;
     }
 
     .apk-button:hover {
-      background: #6b43f0;
       transform: translateY(-2px);
-    }
-
-    .recommended {
-      color: #a98cff;
-      font-size: 11px;
-      font-weight: bold;
-      margin-bottom: 9px;
-      display: block;
+      filter: brightness(1.15);
     }
 
     .download-note {
-      color: #777777;
+      color: #93889f;
       font-size: 12px;
-      line-height: 1.6;
-      margin-top: 20px;
+      text-align: center;
+      margin-top: 22px;
     }
 
-    .footer {
-      color: #777777;
-      font-size: 12px;
-      margin-top: 55px;
+    /* Updates */
+
+    .update-card {
+      margin-top: 25px;
+      padding: 22px;
+      background: #110d1b;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 480px) {
-      body {
-        padding: 30px 14px;
+    .update-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .update-label {
+      color: #b99aff;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 45px 0 25px;
+      background: #07050d;
+    }
+
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      gap: 35px;
+      flex-wrap: wrap;
+      padding-bottom: 30px;
+    }
+
+    .footer-description {
+      max-width: 330px;
+      color: #91899d;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: #aaa1b7;
+      font-size: 13px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #211a2d;
+      padding-top: 20px;
+      color: #716a7c;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 15px;
       }
 
-      h1 {
-        font-size: 30px;
+      .hero {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-phone {
+        transform: scale(.88) rotate(7deg);
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .demo-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-copy {
+        text-align: center;
+      }
+
+      .demo-points {
+        text-align: left;
+        max-width: 390px;
+        margin: auto;
+      }
+
+      .download-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 20px 5%;
+        background: #0d0915;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 17px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 7px 0;
+      }
+
+      .nav-cta {
+        text-align: center;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-content {
+        padding: 80px 0 20px;
+      }
+
+      .hero-content>p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-art {
+        min-height: 510px;
+      }
+
+      .label-one {
+        left: 0;
+      }
+
+      .label-two {
+        right: 0;
+      }
+
+      .trust-items {
+        gap: 15px 25px;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .features-grid,
+      .security-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 30px;
+      }
+
+      .about-panel {
+        padding: 25px;
+      }
+
+      .demo-stage {
+        gap: 15px;
+      }
+
+      .demo-controls {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .demo-tab {
+        text-align: center;
+      }
+
+      .footer-main {
+        flex-direction: column;
       }
 
       .download-grid {
@@ -202,138 +1052,759 @@
         min-height: auto;
       }
     }
+
+    @media (max-width: 380px) {
+      .hero-phone {
+        transform: scale(.8) rotate(7deg);
+      }
+
+      .demo-device {
+        width: 255px;
+      }
+
+      .demo-tab {
+        padding: 9px;
+        font-size: 11px;
+      }
+
+      .referral-panel {
+        padding: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <main class="container">
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="brand" aria-label="Truzen home">
+        <span class="brand-mark"></span>
+        <span>Truzen</span>
+      </a>
 
-    <div class="logo">T</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+        ☰
+      </button>
 
-    <h1>Welcome to Truzen</h1>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#about">About</a>
+        <a href="#security">Security</a>
+        <a href="#download" class="nav-cta">Get the App</a>
+      </nav>
+    </div>
+  </header>
 
-    <p class="description">
-      Connect with people, share your moments,
-      discover content and be part of the Truzen community.
-    </p>
+  <main>
 
-    <div class="referral" id="referralBox">
-      <small>You were invited to join Truzen</small>
-      <strong id="referralCode"></strong>
+    <!-- HOME -->
+
+    <section class="hero" id="home">
+      <div class="container" style="display:contents">
+
+        <div class="hero-content container">
+          <div class="hero-tag">✦ Connect · Share · Explore</div>
+
+          <h1>
+            Connect Your<br>
+            <span class="gradient-text">World.</span>
+          </h1>
+
+          <p>
+            Share your moments, discover interesting content
+            and build connections with people through Truzen.
+            Your space to express, explore and connect.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#download" class="btn btn-primary">↓ Get Truzen</a>
+            <a href="#demo" class="btn btn-outline">▶ Explore Demo</a>
+            <button type="button" class="btn btn-outline" id="heroOpenApp">
+              Open App ↗
+            </button>
+          </div>
+
+          <div class="hero-note">
+            A new way to connect, share and discover.
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="glow-circle"></div>
+          <div class="floating-label label-one">✦ Discover something new</div>
+          <div class="floating-label label-two">◉ Your space. Your control.</div>
+
+          <div class="hero-phone">
+            <div class="phone-screen">
+              <div class="phone-top">
+                <span>9:41</span>
+                <span>● ● ● ▰</span>
+              </div>
+
+              <div class="phone-brand">
+                <span class="gradient-text">Truzen</span>
+              </div>
+
+              <div class="phone-tabs">
+                <span style="color:#b18aff">For You</span>
+                <span>Following</span>
+                <span>Reels</span>
+              </div>
+
+              <div class="phone-post">
+                <strong>Discover your world.</strong>
+                <span>Share your moments on Truzen.</span>
+              </div>
+
+              <div class="phone-actions">
+                <span>♡</span>
+                <span>▢</span>
+                <span>↗</span>
+                <span>⌑</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-items">
+        <div><span>✦</span> Share moments</div>
+        <div><span>▶</span> Discover Reels</div>
+        <div><span>↗</span> Build connections</div>
+        <div><span>🔒</span> Manage your privacy</div>
+      </div>
     </div>
 
-    <a class="button open-button" id="openApp" href="#">
-      Open Truzen App
-    </a>
+    <!-- FEATURES -->
 
-    <!-- DOWNLOAD CENTER -->
-
-    <section class="download-section">
-
-      <h2>Download Truzen</h2>
-
-      <p class="section-description">
-        Get the Truzen Android app and connect with your community.
-        Choose the version compatible with your device.
-      </p>
-
-      <div class="download-grid">
-
-        <!-- ARM64 -->
-
-        <div class="download-card">
-          <span class="recommended">RECOMMENDED FOR MOST PHONES</span>
-
-          <h3>ARM64 APK</h3>
-
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Explore Truzen</div>
+          <h2>Everything to <span class="gradient-text">Connect.</span></h2>
           <p>
-            For most modern Android smartphones with 64-bit processors.
+            Explore the tools that help you share your experiences,
+            discover content and stay connected.
           </p>
-
-          <a class="apk-button" href="downloads/truzen-arm64.apk" download>
-            Download ARM64
-          </a>
         </div>
 
-        <!-- ARMV7 -->
+        <div class="features-grid">
 
-        <div class="download-card">
+          <article class="feature-card">
+            <div class="feature-icon">▧</div>
+            <h3>Photo & Post Feed</h3>
+            <p>Share photos, write captions and explore posts from people and creators you follow.</p>
+          </article>
 
-          <h3>ARMv7 APK</h3>
+          <article class="feature-card">
+            <div class="feature-icon">▶</div>
+            <h3>Truzen Reels</h3>
+            <p>Explore short-form videos, discover creators and enjoy a vertical viewing experience.</p>
+          </article>
 
-          <p>
-            For compatible older Android smartphones with 32-bit processors.
+          <article class="feature-card">
+            <div class="feature-icon">♡</div>
+            <h3>Engagement</h3>
+            <p>Like, comment, share and save content. Interact with posts and Reels you enjoy.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">♧</div>
+            <h3>Profiles & Connections</h3>
+            <p>Create your profile, discover people, follow accounts and manage follow requests.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Creator Experience</h3>
+            <p>Explore creator features and tools designed to support sharing and growing your content.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Personal Controls</h3>
+            <p>Manage privacy preferences, comments, visibility and interactions from your account.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DEMO -->
+
+    <section class="section demo-section" id="demo">
+      <div class="container">
+        <div class="demo-layout">
+
+          <div class="demo-copy">
+            <div class="eyebrow">Interactive Preview</div>
+            <h2>Take a look inside <span class="gradient-text">Truzen.</span></h2>
+
+            <p>
+              Explore a visual preview of the Truzen experience.
+              Choose a screen and see how the interface changes.
+            </p>
+
+            <div class="demo-points">
+              <div><span>✓</span> Explore the feed experience</div>
+              <div><span>✓</span> Preview the Reels interface</div>
+              <div><span>✓</span> See profile and privacy controls</div>
+            </div>
+          </div>
+
+          <div class="demo-stage">
+
+            <div class="demo-device">
+              <div class="demo-screen">
+                <div class="demo-screen-header">
+                  <span class="gradient-text">Truzen</span>
+                  <span>•••</span>
+                </div>
+
+                <div class="demo-screen-content">
+
+                  <div class="demo-scene active" data-scene="feed">
+                    <div class="demo-image">◉</div>
+                    <h4>Moments worth sharing</h4>
+                    <p>Explore photos and posts from your community.</p>
+                    <div style="margin-top:14px">♡　▢　↗　⌑</div>
+                  </div>
+
+                  <div class="demo-scene" data-scene="reels">
+                    <div class="demo-reel">▶</div>
+                    <h4>Discover Reels</h4>
+                    <p>Explore short videos and new creators.</p>
+                  </div>
+
+                  <div class="demo-scene" data-scene="profile">
+                    <div class="demo-profile">
+                      <div class="avatar">T</div>
+                      <h4>Your Truzen Profile</h4>
+                      <p>Share your story and connect with people.</p>
+                      <div style="margin-top:25px;padding:12px;background:#211833;border-radius:10px">
+                        Posts · Followers · Following
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="demo-scene" data-scene="privacy">
+                    <h4 style="margin-bottom:16px">Privacy Controls</h4>
+                    <div style="padding:13px;background:#211833;border-radius:10px;margin-bottom:9px">
+                      🔒 Private Account
+                    </div>
+                    <div style="padding:13px;background:#211833;border-radius:10px;margin-bottom:9px">
+                      ⊘ Blocked Accounts
+                    </div>
+                    <div style="padding:13px;background:#211833;border-radius:10px;margin-bottom:9px">
+                      ✓ Interaction Settings
+                    </div>
+                    <p>Manage available account preferences.</p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-controls">
+              <button class="demo-tab active" data-target="feed">▧ Feed</button>
+              <button class="demo-tab" data-target="reels">▶ Reels</button>
+              <button class="demo-tab" data-target="profile">♧ Profile</button>
+              <button class="demo-tab" data-target="privacy">🔒 Privacy</button>
+              <div class="demo-status" id="demoStatus" aria-live="polite">
+                Previewing Feed
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+
+        <div class="about-panel">
+          <div class="about-symbol">T</div>
+          <h2 class="gradient-text">Connect Your World.</h2>
+          <p style="color:#a89db8;margin-top:10px">
+            One place to share, discover and connect.
           </p>
-
-          <a class="apk-button" href="downloads/truzen-armv7.apk" download>
-            Download ARMv7
-          </a>
         </div>
 
-        <!-- UNIVERSAL -->
-
-        <div class="download-card">
-
-          <h3>Universal APK</h3>
+        <div class="about-copy">
+          <div class="eyebrow">About Truzen</div>
+          <h2>A space for <span class="gradient-text">expression.</span></h2>
 
           <p>
-            Combined APK for supported Android processor architectures.
+            Truzen is a social platform built around sharing,
+            discovery and connection. It brings together posts,
+            short videos and personal profiles in one experience.
           </p>
 
-          <a class="apk-button" href="downloads/truzen-universal.apk" download>
-            Download Universal
+          <p>
+            Our vision is to create a welcoming digital space
+            where people can express themselves, discover
+            interesting content and build meaningful connections.
+          </p>
+
+          <p>
+            We believe that a better social experience should
+            give people more ways to express themselves and
+            more control over how they interact.
+          </p>
+
+          <a href="#features" class="btn btn-outline">Explore Features →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECURITY -->
+
+    <section class="section security-section" id="security">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="eyebrow">Your Control Matters</div>
+          <h2>Privacy is part of the <span class="gradient-text">experience.</span></h2>
+          <p>
+            Truzen provides account and interaction controls
+            designed to help users manage their experience.
+          </p>
+        </div>
+
+        <div class="security-grid">
+
+          <article class="security-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Private Accounts</h3>
+            <p>Private account settings and follow requests help users control who can connect with them.</p>
+          </article>
+
+          <article class="security-card">
+            <div class="feature-icon">⊘</div>
+            <h3>Block & Mute</h3>
+            <p>Block or mute accounts to manage unwanted interactions and personalize your experience.</p>
+          </article>
+
+          <article class="security-card">
+            <div class="feature-icon">⚑</div>
+            <h3>Reporting Tools</h3>
+            <p>Report posts and Reels that may violate platform rules for review.</p>
+          </article>
+
+          <article class="security-card">
+            <div class="feature-icon">⚙</div>
+            <h3>Account Preferences</h3>
+            <p>Manage available settings for comments, messages, mentions, activity and content.</p>
+          </article>
+
+        </div>
+
+        <p class="security-note">
+          Privacy and safety controls depend on the feature
+          and settings available in the current app version.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- DOWNLOAD AND REFERRAL -->
+
+    <section class="section" id="download">
+      <div class="container">
+
+        <div class="download-panel">
+          <div class="download-symbol">T</div>
+
+          <div class="eyebrow">Your next connection starts here</div>
+
+          <h2>Get <span class="gradient-text">Truzen.</span></h2>
+
+          <p>
+            Discover a new space to share moments,
+            explore Reels and connect with people.
+            Download the official Android app.
+          </p>
+
+          <button type="button" class="btn btn-primary" id="downloadOpenApp">
+            ↗ Open Truzen App
+          </button>
+        </div>
+
+        <!-- REFERRAL INVITATION -->
+
+        <div class="referral-panel" id="referralPanel">
+          <div class="eyebrow">You have been invited</div>
+          <h3>Join Truzen with a referral</h3>
+          <p>
+            Your invitation referral code is:
+          </p>
+
+          <div class="referral-code" id="referralCode"></div>
+
+          <div class="referral-actions">
+            <button type="button" class="btn btn-primary" id="copyInvite">
+              Copy Invite Link
+            </button>
+
+            <button type="button" class="btn btn-outline" id="copyReferral">
+              Copy Referral Code
+            </button>
+          </div>
+
+          <div class="referral-message" id="referralMessage" aria-live="polite"></div>
+        </div>
+
+        <!-- APK DOWNLOADS -->
+
+        <div class="section-heading" style="margin-top:65px;margin-bottom:25px">
+          <div class="eyebrow">Official Android Downloads</div>
+          <h2>Download <span class="gradient-text">Truzen.</span></h2>
+          <p>
+            Choose the APK version compatible with your Android device.
+          </p>
+        </div>
+
+        <div class="download-grid">
+
+          <article class="download-card">
+            <span class="recommended">RECOMMENDED FOR MOST PHONES</span>
+            <h3>ARM64 APK</h3>
+            <p>
+              For most modern Android smartphones with 64-bit processors.
+            </p>
+            <a class="apk-button"
+              href="https://github.com/Roshandip/Truzen-website/releases/download/v1.0.0/truzen-arm64.apk">
+              Download ARM64
+            </a>
+          </article>
+
+          <article class="download-card">
+            <h3>ARMv7 APK</h3>
+            <p>
+              For compatible older Android smartphones with 32-bit processors.
+            </p>
+            <a class="apk-button"
+              href="https://github.com/Roshandip/Truzen-website/releases/download/v1.0.0/truzen-armv7.apk">
+              Download ARMv7
+            </a>
+          </article>
+
+          <article class="download-card">
+            <h3>Universal APK</h3>
+            <p>
+              Combined APK for supported Android processor architectures.
+            </p>
+            <a class="apk-button"
+              href="https://github.com/Roshandip/Truzen-website/releases/download/v1.0.0/truzen-universal.apk">
+              Download Universal
+            </a>
+          </article>
+
+        </div>
+
+        <p class="download-note">
+          Android only. Choose the APK compatible with your device.
+          Only download Truzen from official sources.
+        </p>
+
+        <!-- APP UPDATES -->
+
+        <div class="update-card">
+          <div>
+            <div class="update-label">APP UPDATES</div>
+            <strong>Stay up to date with Truzen</strong>
+            <p>
+              View official version information and available releases.
+            </p>
+          </div>
+
+          <a class="btn btn-outline" href="https://github.com/Roshandip/Truzen-website/releases/tag/v1.0.0"
+            target="_blank" rel="noopener noreferrer">
+            View Official Release ↗
           </a>
         </div>
 
       </div>
-
-      <p class="download-note">
-        Android only. Download and install the APK compatible with your device.
-        Only download Truzen from official sources.
-      </p>
-
     </section>
-
-    <p class="footer">
-      © 2026 Truzen. All rights reserved.
-    </p>
 
   </main>
 
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+
+      <div class="footer-main">
+
+        <div>
+          <a href="#home" class="brand">
+            <span class="brand-mark"></span>
+            <span>Truzen</span>
+          </a>
+
+          <p class="footer-description">
+            Connect your world. Share your moments,
+            discover content and build connections.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#features">Features</a>
+          <a href="#demo">Demo</a>
+          <a href="#about">About</a>
+          <a href="#security">Security</a>
+          <a href="#download">Download</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Truzen. All rights reserved.
+        <br>
+        Connect · Share · Explore
+      </div>
+
+    </div>
+  </footer>
+
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const rawCode = params.get('ref');
+    /* =====================================
+       TRUZEN WEBSITE CONFIGURATION
+    ===================================== */
 
-    let referralCode = '';
+    const TRUZEN_CONFIG = {
+      // Android application package name
+      androidPackage: "com.truzenlite",
 
-    if (rawCode) {
-      const code = rawCode.trim().toUpperCase();
+      // Existing Truzen app link domain
+      appDomain: "truzen.web.app",
 
-      if (/^[A-Z0-9]{16}$/.test(code)) {
-        referralCode = code;
+      // Website fallback URL
+      websiteUrl: "https://roshandip.github.io/Truzen-website/"
+    };
 
-        document.getElementById('referralCode').textContent = code;
-        document.getElementById('referralBox').style.display = 'block';
+
+    /* =====================================
+       REFERRAL LINK HANDLING
+    ===================================== */
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const rawReferralCode = urlParams.get("ref");
+
+    let referralCode = "";
+
+    if (rawReferralCode) {
+      const cleanedCode = rawReferralCode.trim().toUpperCase();
+
+      // Accept only the expected 16-character referral format.
+      if (/^[A-Z0-9]{16}$/.test(cleanedCode)) {
+        referralCode = cleanedCode;
       }
     }
 
-    const query = referralCode
-      ? '?ref=' + encodeURIComponent(referralCode)
-      : '';
+    const referralPanel = document.getElementById("referralPanel");
+    const referralCodeElement = document.getElementById("referralCode");
+    const referralMessage = document.getElementById("referralMessage");
 
-    const fallbackUrl =
-      'https://roshandip.github.io/Truzen-website/' + query;
+    if (referralCode) {
+      referralPanel.classList.add("visible");
+      referralCodeElement.textContent = referralCode;
+    }
 
-    const intentUrl =
-      'intent://truzen.web.app/' + query +
-      '#Intent;scheme=https;' +
-      'package=com.example.truzenlite;' +
-      'S.browser_fallback_url=' +
-      encodeURIComponent(fallbackUrl) +
-      ';end';
+    function getReferralQuery() {
+      return referralCode
+        ? "?ref=" + encodeURIComponent(referralCode)
+        : "";
+    }
 
-    document.getElementById('openApp').href = intentUrl;
+    function getInviteLink() {
+      return TRUZEN_CONFIG.websiteUrl + getReferralQuery();
+    }
+
+
+    /* =====================================
+       COPY FUNCTIONS
+    ===================================== */
+
+    async function copyText(text) {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.opacity = "0";
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        const copied = document.execCommand("copy");
+        textArea.remove();
+
+        return copied;
+      } catch (error) {
+        console.error("Copy failed:", error);
+        return false;
+      }
+    }
+
+    document.getElementById("copyReferral").addEventListener("click", async () => {
+      if (!referralCode) return;
+
+      const copied = await copyText(referralCode);
+
+      referralMessage.textContent = copied
+        ? "Referral code copied successfully."
+        : "Could not copy. Please copy the code manually.";
+    });
+
+    document.getElementById("copyInvite").addEventListener("click", async () => {
+      if (!referralCode) return;
+
+      const copied = await copyText(getInviteLink());
+
+      referralMessage.textContent = copied
+        ? "Invite link copied. Share it with your friends!"
+        : "Could not copy the link. Please try again.";
+    });
+
+
+    /* =====================================
+       OPEN TRUZEN APP
+    ===================================== */
+
+    function openTruzenApp() {
+      const fallbackUrl = getInviteLink();
+
+      // The referral query is passed to the existing app link domain.
+      const appUrl =
+        "intent://" +
+        TRUZEN_CONFIG.appDomain +
+        "/" +
+        getReferralQuery() +
+        "#Intent;" +
+        "scheme=https;" +
+        "package=" + TRUZEN_CONFIG.androidPackage + ";" +
+        "S.browser_fallback_url=" + encodeURIComponent(fallbackUrl) +
+        ";end";
+
+      const isAndroid = /Android/i.test(navigator.userAgent);
+
+      if (isAndroid) {
+        window.location.href = appUrl;
+      } else {
+        // On desktop and non-Android devices, show the website.
+        window.location.href = fallbackUrl;
+      }
+    }
+
+    document.getElementById("heroOpenApp").addEventListener("click", openTruzenApp);
+    document.getElementById("downloadOpenApp").addEventListener("click", openTruzenApp);
+
+
+    /* =====================================
+       MOBILE NAVIGATION
+    ===================================== */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+
+    /* =====================================
+       INTERACTIVE DEMO SCREEN SWITCHER
+    ===================================== */
+
+    const demoTabs = document.querySelectorAll(".demo-tab");
+    const demoScenes = document.querySelectorAll(".demo-scene");
+    const demoStatus = document.getElementById("demoStatus");
+
+    demoTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.target;
+
+        demoTabs.forEach(item => item.classList.remove("active"));
+        demoScenes.forEach(scene => scene.classList.remove("active"));
+
+        tab.classList.add("active");
+
+        const selectedScene = document.querySelector(
+          '.demo-scene[data-scene="' + target + '"]'
+        );
+
+        if (selectedScene) {
+          selectedScene.classList.add("active");
+        }
+
+        demoStatus.textContent =
+          "Previewing " + target.charAt(0).toUpperCase() + target.slice(1);
+      });
+    });
+
+
+    /* =====================================
+       ACTIVE NAVIGATION WHILE SCROLLING
+    ===================================== */
+
+    const pageSections = document.querySelectorAll("main section[id]");
+    const navigationLinks = document.querySelectorAll(".nav-links a[href^='#']");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navigationLinks.forEach(link => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === "#" + entry.target.id
+              );
+            });
+          }
+        });
+      }, {
+        rootMargin: "-30% 0px -60% 0px"
+      });
+
+      pageSections.forEach(section => observer.observe(section));
+    }
   </script>
 
 </body>
