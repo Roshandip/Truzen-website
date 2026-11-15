@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Truzen - Connect Your World</title>
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Join Truzen, connect with people, share moments and discover content.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 40px 18px;
+      background: #090909;
+      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .logo {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      color: #090909;
+      border-radius: 22px;
+      font-size: 38px;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin: 0 0 12px;
+      letter-spacing: 1px;
+    }
+
+    .description {
+      color: #aaaaaa;
+      line-height: 1.7;
+      font-size: 15px;
+      margin: 0 auto 28px;
+      max-width: 480px;
+    }
+
+    .referral {
+      display: none;
+      background: #202020;
+      border: 1px solid #333333;
+      border-radius: 12px;
+      padding: 14px;
+      margin: 0 auto 22px;
+      max-width: 400px;
+    }
+
+    .referral small {
+      display: block;
+      color: #aaaaaa;
+      margin-bottom: 8px;
+    }
+
+    .referral strong {
+      color: #ffffff;
+      letter-spacing: 2px;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: #ffffff;
+      color: #090909;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .open-button {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .download-section {
+      margin-top: 65px;
+    }
+
+    .download-section h2 {
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
+    .section-description {
+      color: #999999;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      text-align: left;
+    }
+
+    .download-card {
+      background: #151515;
+      border: 1px solid #292929;
+      border-radius: 17px;
+      padding: 20px;
+    }
+
+    .download-card h3 {
+      font-size: 17px;
+      margin: 0 0 10px;
+    }
+
+    .download-card p {
+      color: #999999;
+      font-size: 13px;
+      line-height: 1.6;
+      min-height: 42px;
+      margin: 0 0 18px;
+    }
+
+    .apk-button {
+      display: block;
+      width: 100%;
+      padding: 13px 10px;
+      text-align: center;
+      background: #5428E8;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .apk-button:hover {
+      background: #6b43f0;
+      transform: translateY(-2px);
+    }
+
+    .recommended {
+      color: #a98cff;
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 9px;
+      display: block;
+    }
+
+    .download-note {
+      color: #777777;
+      font-size: 12px;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    .footer {
+      color: #777777;
+      font-size: 12px;
+      margin-top: 55px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 30px 14px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .download-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .download-card p {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <div class="logo">T</div>
+
+    <h1>Welcome to Truzen</h1>
+
+    <p class="description">
+      Connect with people, share your moments,
+      discover content and be part of the Truzen community.
+    </p>
+
+    <div class="referral" id="referralBox">
+      <small>You were invited to join Truzen</small>
+      <strong id="referralCode"></strong>
+    </div>
+
+    <a class="button open-button" id="openApp" href="#">
+      Open Truzen App
+    </a>
+
+    <!-- DOWNLOAD CENTER -->
+
+    <section class="download-section">
+
+      <h2>Download Truzen</h2>
+
+      <p class="section-description">
+        Get the Truzen Android app and connect with your community.
+        Choose the version compatible with your device.
+      </p>
+
+      <div class="download-grid">
+
+        <!-- ARM64 -->
+
+        <div class="download-card">
+          <span class="recommended">RECOMMENDED FOR MOST PHONES</span>
+
+          <h3>ARM64 APK</h3>
+
+          <p>
+            For most modern Android smartphones with 64-bit processors.
+          </p>
+
+          <a class="apk-button" href="downloads/truzen-arm64.apk" download>
+            Download ARM64
+          </a>
+        </div>
+
+        <!-- ARMV7 -->
+
+        <div class="download-card">
+
+          <h3>ARMv7 APK</h3>
+
+          <p>
+            For compatible older Android smartphones with 32-bit processors.
+          </p>
+
+          <a class="apk-button" href="downloads/truzen-armv7.apk" download>
+            Download ARMv7
+          </a>
+        </div>
+
+        <!-- UNIVERSAL -->
+
+        <div class="download-card">
+
+          <h3>Universal APK</h3>
+
+          <p>
+            Combined APK for supported Android processor architectures.
+          </p>
+
+          <a class="apk-button" href="downloads/truzen-universal.apk" download>
+            Download Universal
+          </a>
+        </div>
+
+      </div>
+
+      <p class="download-note">
+        Android only. Download and install the APK compatible with your device.
+        Only download Truzen from official sources.
+      </p>
+
+    </section>
+
+    <p class="footer">
+      © 2026 Truzen. All rights reserved.
+    </p>
+
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const rawCode = params.get('ref');
+
+    let referralCode = '';
+
+    if (rawCode) {
+      const code = rawCode.trim().toUpperCase();
+
+      if (/^[A-Z0-9]{16}$/.test(code)) {
+        referralCode = code;
+
+        document.getElementById('referralCode').textContent = code;
+        document.getElementById('referralBox').style.display = 'block';
+      }
+    }
+
+    const query = referralCode
+      ? '?ref=' + encodeURIComponent(referralCode)
+      : '';
+
+    const fallbackUrl =
+      'https://roshandip.github.io/Truzen-website/' + query;
+
+    const intentUrl =
+      'intent://truzen.web.app/' + query +
+      '#Intent;scheme=https;' +
+      'package=com.example.truzenlite;' +
+      'S.browser_fallback_url=' +
+      encodeURIComponent(fallbackUrl) +
+      ';end';
+
+    document.getElementById('openApp').href = intentUrl;
+  </script>
+
+</body>
+
+</html>
