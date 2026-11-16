@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,6 @@
   <meta name="theme-color" content="#080610">
   <meta name="description" content="Truzen is a place to share moments, discover Reels and connect with people.">
   <title>Truzen — Connect Your World</title>
-
   <style>
     :root {
       --bg: #080610;
@@ -15,7 +14,7 @@
       --surface2: #171124;
       --purple: #8048ff;
       --purple2: #a477ff;
-      --text: #ffffff;
+      --text: #fff;
       --muted: #aaa3b8;
       --border: rgba(164, 119, 255, .19);
     }
@@ -81,6 +80,7 @@
     }
 
     .eyebrow {
+      display: block;
       color: var(--purple2);
       text-transform: uppercase;
       font-size: 12px;
@@ -88,8 +88,6 @@
       font-weight: 700;
       margin-bottom: 13px;
     }
-
-    /* Navigation */
 
     header {
       position: sticky;
@@ -161,8 +159,6 @@
       cursor: pointer;
     }
 
-    /* Buttons */
-
     .btn {
       display: inline-flex;
       justify-content: center;
@@ -192,8 +188,6 @@
       background: rgba(255, 255, 255, .025);
     }
 
-    /* Hero */
-
     .hero {
       min-height: 690px;
       display: grid;
@@ -201,9 +195,8 @@
       align-items: center;
       position: relative;
       overflow: hidden;
-      background:
-        radial-gradient(ellipse at 75% 42%, rgba(105, 43, 231, .23), transparent 40%),
-        radial-gradient(ellipse at 12% 85%, rgba(100, 36, 200, .12), transparent 38%);
+      background: radial-gradient(ellipse at 75% 42%, rgba(105, 43, 231, .23), transparent 40%), radial-gradient(ellipse at 12% 85%, rgba(100, 36, 200, .12), transparent 38%);
+      scroll-margin-top: 85px;
     }
 
     .hero-content {
@@ -311,9 +304,7 @@
     .phone-post {
       height: 280px;
       border-radius: 13px;
-      background:
-        linear-gradient(0deg, rgba(0, 0, 0, .75), transparent 55%),
-        linear-gradient(135deg, #563d8a, #e39a9b 45%, #242d54);
+      background: linear-gradient(0deg, rgba(0, 0, 0, .75), transparent 55%), linear-gradient(135deg, #563d8a, #e39a9b 45%, #242d54);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -358,15 +349,13 @@
 
       0%,
       100% {
-        transform: translateY(0) rotate(7deg);
+        transform: translateY(0) rotate(7deg)
       }
 
       50% {
-        transform: translateY(-15px) rotate(5deg);
+        transform: translateY(-15px) rotate(5deg)
       }
     }
-
-    /* Trust strip */
 
     .trust-strip {
       border-top: 1px solid var(--border);
@@ -388,8 +377,6 @@
       color: var(--purple2);
       margin-right: 7px;
     }
-
-    /* Features */
 
     .features-grid {
       display: grid;
@@ -431,12 +418,8 @@
       font-size: 14px;
     }
 
-    /* Demo */
-
     .demo-section {
-      background:
-        radial-gradient(ellipse at 50% 50%, rgba(99, 45, 194, .15), transparent 65%),
-        #0b0812;
+      background: radial-gradient(ellipse at 50% 50%, rgba(99, 45, 194, .15), transparent 65%), #0b0812;
     }
 
     .demo-layout {
@@ -518,12 +501,12 @@
     @keyframes appear {
       from {
         opacity: 0;
-        transform: translateY(8px);
+        transform: translateY(8px)
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0)
       }
     }
 
@@ -603,8 +586,6 @@
       margin-top: 10px;
     }
 
-    /* About */
-
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -637,8 +618,6 @@
     .about-copy p {
       margin-bottom: 16px;
     }
-
-    /* Security */
 
     .security-section {
       background: #0d0915;
@@ -675,8 +654,6 @@
       font-size: 12px;
       text-align: center;
     }
-
-    /* Referral */
 
     .referral-panel {
       display: none;
@@ -726,8 +703,6 @@
       font-size: 12px;
     }
 
-    /* Download */
-
     .download-panel {
       position: relative;
       overflow: hidden;
@@ -735,9 +710,7 @@
       padding: 65px 25px;
       border-radius: 24px;
       border: 1px solid rgba(157, 104, 255, .4);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(125, 63, 255, .25), transparent 65%),
-        #120d1e;
+      background: radial-gradient(circle at 50% 0%, rgba(125, 63, 255, .25), transparent 65%), #120d1e;
     }
 
     .download-symbol {
@@ -831,8 +804,6 @@
       margin-top: 22px;
     }
 
-    /* Updates */
-
     .update-card {
       margin-top: 25px;
       padding: 22px;
@@ -844,6 +815,7 @@
       align-items: center;
       gap: 15px;
       flex-wrap: wrap;
+      text-align: left;
     }
 
     .update-card p {
@@ -856,8 +828,6 @@
       font-size: 12px;
       letter-spacing: 1px;
     }
-
-    /* Footer */
 
     footer {
       border-top: 1px solid var(--border);
@@ -900,51 +870,49 @@
       text-align: center;
     }
 
-    /* Responsive */
-
-    @media (max-width: 900px) {
+    @media(max-width:900px) {
       .nav-links {
-        gap: 15px;
+        gap: 15px
       }
 
       .hero {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr
       }
 
       .hero-phone {
-        transform: scale(.88) rotate(7deg);
+        transform: scale(.88) rotate(7deg)
       }
 
       .features-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr)
       }
 
       .demo-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr
       }
 
       .demo-copy {
-        text-align: center;
+        text-align: center
       }
 
       .demo-points {
         text-align: left;
         max-width: 390px;
-        margin: auto;
+        margin: auto
       }
 
       .download-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr)
       }
     }
 
-    @media (max-width: 700px) {
+    @media(max-width:700px) {
       .navbar {
-        min-height: 68px;
+        min-height: 68px
       }
 
       .menu-toggle {
-        display: block;
+        display: block
       }
 
       .nav-links {
@@ -958,297 +926,422 @@
         border-bottom: 1px solid var(--border);
         flex-direction: column;
         align-items: stretch;
-        gap: 17px;
+        gap: 17px
       }
 
       .nav-links.open {
-        display: flex;
+        display: flex
       }
 
       .nav-links a {
-        padding: 7px 0;
+        padding: 7px 0
       }
 
       .nav-cta {
-        text-align: center;
+        text-align: center
       }
 
       .hero {
         grid-template-columns: 1fr;
-        text-align: center;
+        text-align: center
       }
 
       .hero-content {
-        padding: 80px 0 20px;
+        padding: 80px 0 20px
       }
 
       .hero-content>p {
         margin-left: auto;
-        margin-right: auto;
+        margin-right: auto
       }
 
       .hero-actions {
-        justify-content: center;
+        justify-content: center
       }
 
       .hero-art {
-        min-height: 510px;
+        min-height: 510px
       }
 
       .label-one {
-        left: 0;
+        left: 0
       }
 
       .label-two {
-        right: 0;
+        right: 0
       }
 
       .trust-items {
-        gap: 15px 25px;
+        gap: 15px 25px
       }
 
       .section {
-        padding: 75px 0;
+        padding: 75px 0
       }
 
       .features-grid,
       .security-grid,
       .about-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr
       }
 
       .about-grid {
-        gap: 30px;
+        gap: 30px
       }
 
       .about-panel {
-        padding: 25px;
+        padding: 25px
       }
 
       .demo-stage {
-        gap: 15px;
+        gap: 15px
       }
 
       .demo-controls {
         width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: center
       }
 
       .demo-tab {
-        text-align: center;
+        text-align: center
       }
 
       .footer-main {
-        flex-direction: column;
+        flex-direction: column
       }
 
       .download-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr
       }
 
       .download-card p {
-        min-height: auto;
+        min-height: auto
       }
     }
 
-    @media (max-width: 380px) {
+    @media(max-width:380px) {
       .hero-phone {
-        transform: scale(.8) rotate(7deg);
+        transform: scale(.8) rotate(7deg)
       }
 
       .demo-device {
-        width: 255px;
+        width: 255px
       }
 
       .demo-tab {
         padding: 9px;
-        font-size: 11px;
+        font-size: 11px
       }
 
       .referral-panel {
-        padding: 18px;
+        padding: 18px
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @media(prefers-reduced-motion:reduce) {
 
       *,
       *::before,
       *::after {
         scroll-behavior: auto !important;
         animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+        transition-duration: .01ms !important
       }
     }
   </style>
 </head>
 
 <body>
-
   <header>
     <div class="container navbar">
-      <a href="#home" class="brand" aria-label="Truzen home">
-        <span class="brand-mark"></span>
-        <span>Truzen</span>
-      </a>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
-        ☰
-      </button>
-
+      <a href="#home" class="brand" aria-label="Truzen home"><span class="brand-mark"></span><span>Truzen</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation"
+        aria-expanded="false">☰</button>
       <nav class="nav-links" id="navLinks">
-        <a href="#home" class="active">Home</a>
-        <a href="#features">Features</a>
-        <a href="#demo">Demo</a>
-        <a href="#about">About</a>
-        <a href="#security">Security</a>
-        <a href="#download" class="nav-cta">Get the App</a>
+        <a href="#home" class="active">Home</a><a href="#features">Features</a><a href="#demo">Demo</a>
+        <a href="#about">About</a><a href="#security">Security</a><a href="#download" class="nav-cta">Get the App</a>
       </nav>
     </div>
   </header>
 
   <main>
-
-    <!-- HOME -->
-
     <section class="hero" id="home">
-      <div class="container" style="display:contents">
-
-        <div class="hero-content container">
-          <div class="hero-tag">✦ Connect · Share · Explore</div>
-
-          <h1>
-            Connect Your<br>
-            <span class="gradient-text">World.</span>
-          </h1>
-
-          <p>
-            Share your moments, discover interesting content
-            and build connections with people through Truzen.
-            Your space to express, explore and connect.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#download" class="btn btn-primary">↓ Get Truzen</a>
-            <a href="#demo" class="btn btn-outline">▶ Explore Demo</a>
-            <button type="button" class="btn btn-outline" id="heroOpenApp">
-              Open App ↗
-            </button>
+      <div class="hero-content container">
+        <div class="hero-tag">✦ Connect · Share · Explore</div>
+        <h1>Connect Your<br><span class="gradient-text">World.</span></h1>
+        <p>Share your moments, discover interesting content and build connections with people through Truzen. Your space
+          to express, explore and connect.</p>
+        <div class="hero-actions">
+          <a href="#download" class="btn btn-primary">↓ Get Truzen</a>
+          <a href="#demo" class="btn btn-outline">▶ Explore Demo</a>
+          <button type="button" class="btn btn-outline" id="heroOpenApp">Open App ↗</button>
+        </div>
+        <p class="hero-note">Connect with your community. Share what matters.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="glow-circle"></div>
+        <div class="floating-label label-one">✦ Discover content</div>
+        <div class="hero-phone">
+          <div class="phone-screen">
+            <div class="phone-top"><span>9:41</span><span>● ● ●</span></div>
+            <div class="phone-brand">Truzen</div>
+            <div class="phone-tabs"><span>For you</span><span>Following</span><span>Explore</span></div>
+            <div class="phone-post"><strong>Share your world</strong><span>Moments worth sharing.</span></div>
+            <div class="phone-actions"><span>♡</span><span>◯</span><span>↗</span><span>⌂</span></div>
           </div>
-
-    <a class="button open-button" id="openApp" href="#">
-      Open Truzen App
-    </a>
-
-    <!-- DOWNLOAD CENTER -->
-
-    <section class="download-section">
-
-      <h2>Download Truzen</h2>
-
-      <p class="section-description">
-        Get the Truzen Android app and connect with your community.
-        Choose the version compatible with your device.
-      </p>
-
-      <div class="download-grid">
-
-        <!-- ARM64 -->
-
-        <div class="download-card">
-          <span class="recommended">RECOMMENDED FOR MOST PHONES</span>
-
-          <h3>ARM64 APK</h3>
-
-          <p>
-            For most modern Android smartphones with 64-bit processors.
-          </p>
-
-          <a class="apk-button" href="downloads/truzen-arm64.apk" download>
-            Download ARM64
-          </a>
         </div>
-
-        <!-- ARMV7 -->
-
-        <div class="download-card">
-
-          <h3>ARMv7 APK</h3>
-
-          <p>
-            For compatible older Android smartphones with 32-bit processors.
-          </p>
-
-          <a class="apk-button" href="downloads/truzen-armv7.apk" download>
-            Download ARMv7
-          </a>
-        </div>
-
-        <!-- UNIVERSAL -->
-
-        <div class="download-card">
-
-          <h3>Universal APK</h3>
-
-          <p>
-            Combined APK for supported Android processor architectures.
-          </p>
-
-          <a class="apk-button" href="downloads/truzen-universal.apk" download>
-            Download Universal
-          </a>
-        </div>
-
-        </div>
-
-        <p class="download-note">
-          Android only. Choose the APK compatible with your device.
-          Only download Truzen from official sources.
-        </p>
-
-        <!-- APP UPDATES -->
-
-        <div class="update-card">
-          <div>
-            <div class="update-label">APP UPDATES</div>
-            <strong>Stay up to date with Truzen</strong>
-            <p>
-              View official version information and available releases.
-            </p>
-          </div>
-
-          <a class="btn btn-outline" href="https://github.com/Roshandip/Truzen-website/releases/tag/v1.0.0"
-            target="_blank" rel="noopener noreferrer">
-            View Official Release ↗
-          </a>
-        </div>
-
+        <div class="floating-label label-two">♥ Stay connected</div>
       </div>
     </section>
 
-  </main>
+    <div class="trust-strip">
+      <div class="container trust-items">
+        <div><span>✦</span> Share moments</div>
+        <div><span>✦</span> Discover Reels</div>
+        <div><span>✦</span> Build connections</div>
+        <div><span>✦</span> Manage your privacy</div>
+      </div>
+    </div>
 
-  <!-- FOOTER -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">DISCOVER TRUZEN</span>
+          <h2>Everything You Need to <span class="gradient-text">Connect.</span></h2>
+          <p>Explore features designed to help you share moments, discover content and stay connected.</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">📸</div>
+            <h3>Share Moments</h3>
+            <p>Share photos and updates with your followers and express yourself through posts.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">🎬</div>
+            <h3>Discover Reels</h3>
+            <p>Explore short videos, discover creators and enjoy interesting content.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>Stay Connected</h3>
+            <p>Interact with posts, share conversations and keep up with your community.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">❤️</div>
+            <h3>Engage & Interact</h3>
+            <p>Like, comment, save and share content that matters to you.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">👤</div>
+            <h3>Your Profile</h3>
+            <p>Personalize your profile and organize the moments you want to share.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Privacy Controls</h3>
+            <p>Manage account privacy and choose how you interact with others.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section demo-section" id="demo">
+      <div class="container demo-layout">
+        <div class="demo-copy">
+          <span class="eyebrow">EXPLORE THE EXPERIENCE</span>
+          <h2>Take a Look Inside <span class="gradient-text">Truzen.</span></h2>
+          <p>Explore a preview of the Truzen experience. Switch between the different screens to see what you can
+            discover in the app.</p>
+          <div class="demo-points">
+            <div><span>✓</span> Discover your feed</div>
+            <div><span>✓</span> Explore short videos</div>
+            <div><span>✓</span> Personalize your profile</div>
+            <div><span>✓</span> Explore privacy options</div>
+          </div>
+        </div>
+        <div class="demo-stage">
+          <div class="demo-device">
+            <div class="demo-screen">
+              <div class="demo-screen-header"><span>Truzen</span><span>♡</span></div>
+              <div class="demo-screen-content">
+                <div class="demo-scene active" data-scene="feed">
+                  <h4>Your Feed</h4>
+                  <div class="demo-image">📷</div>
+                  <h4>Discover moments</h4>
+                  <p>Explore posts and updates from people in your community.</p>
+                  <p>♡ Like &nbsp; ◯ Comment &nbsp; ↗ Share</p>
+                </div>
+                <div class="demo-scene" data-scene="reels">
+                  <h4>Explore Reels</h4>
+                  <div class="demo-reel">▶</div>
+                  <h4>Discover something new</h4>
+                  <p>Explore short videos and discover content from different creators.</p>
+                </div>
+                <div class="demo-scene" data-scene="profile">
+                  <div class="demo-profile">
+                    <div class="avatar">👤</div>
+                    <h4>Your Profile</h4>
+                    <p>@yourusername</p>
+                    <p>Share your story with the world.</p>
+                    <p>Posts &nbsp; Followers &nbsp; Following</p>
+                  </div>
+                </div>
+                <div class="demo-scene" data-scene="privacy">
+                  <h4>Privacy Settings</h4>
+                  <div class="demo-image">🔐</div>
+                  <h4>Your privacy matters</h4>
+                  <p>Manage account visibility, interactions and privacy preferences.</p>
+                  <p>✓ Account controls</p>
+                  <p>✓ Block and mute</p>
+                  <p>✓ Reporting tools</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <button type="button" class="demo-tab active" data-target="feed">📱 Feed</button>
+            <button type="button" class="demo-tab" data-target="reels">🎬 Reels</button>
+            <button type="button" class="demo-tab" data-target="profile">👤 Profile</button>
+            <button type="button" class="demo-tab" data-target="privacy">🔒 Privacy</button>
+            <div class="demo-status" id="demoStatus" aria-live="polite">Previewing Feed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <div class="about-symbol">T</div>
+          <h3>Connect · Share · Explore</h3>
+          <p>Your world, your community, your Truzen.</p>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">ABOUT TRUZEN</span>
+          <h2>A Space to Express Your <span class="gradient-text">World.</span></h2>
+          <p>Truzen is a social platform built to help people share their moments, discover interesting content and
+            connect with their community.</p>
+          <p>From everyday posts to short videos, Truzen brings sharing and discovery together in one place.</p>
+          <a href="#download" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section security-section" id="security">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">YOUR CONTROL MATTERS</span>
+          <h2>Privacy & <span class="gradient-text">Security.</span></h2>
+          <p>Tools that help you manage your account, content and interactions.</p>
+        </div>
+        <div class="security-grid">
+          <article class="security-card">
+            <div class="feature-icon">🔐</div>
+            <h3>Private Accounts</h3>
+            <p>Manage account visibility and control who can follow your private account.</p>
+          </article>
+          <article class="security-card">
+            <div class="feature-icon">🚫</div>
+            <h3>Block & Mute</h3>
+            <p>Manage unwanted interactions and customize the content you see.</p>
+          </article>
+          <article class="security-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Reporting Tools</h3>
+            <p>Report content or account concerns for review.</p>
+          </article>
+          <article class="security-card">
+            <div class="feature-icon">⚙️</div>
+            <h3>Account Preferences</h3>
+            <p>Manage your messaging, activity, content and privacy preferences.</p>
+          </article>
+        </div>
+        <div class="security-note">
+          <strong>Your account, your choices.</strong>
+          <p>Review your settings regularly and use the available privacy controls to manage your experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="container">
+        <div class="referral-panel" id="referralPanel">
+          <span class="eyebrow">YOU'RE INVITED</span>
+          <h2>Join Truzen with a Referral</h2>
+          <p>You received an invitation to discover Truzen. Copy the referral code or share the invite link.</p>
+          <div class="referral-code" id="referralCode"></div>
+          <div class="referral-actions">
+            <button type="button" class="btn btn-primary" id="copyReferral">Copy Referral Code</button>
+            <button type="button" class="btn btn-outline" id="copyInvite">Copy Invite Link</button>
+          </div>
+          <p class="referral-message" id="referralMessage" aria-live="polite"></p>
+        </div>
+
+        <div class="download-panel">
+          <div class="download-symbol">T</div>
+          <span class="eyebrow">GET STARTED</span>
+          <h2>Download <span class="gradient-text">Truzen.</span></h2>
+          <p>Get the Truzen Android app and connect with your community. Choose the version compatible with your device.
+          </p>
+
+          <div class="download-grid">
+            <div class="download-card">
+              <span class="recommended">RECOMMENDED FOR MOST PHONES</span>
+              <h3>ARM64 APK</h3>
+              <p>For most modern Android smartphones with 64-bit processors.</p>
+              <a class="apk-button"
+                href="https://github.com/Roshandip/Truzen-website/releases/download/v1.0.0/truzen-arm64.apk">Download
+                ARM64</a>
+            </div>
+
+            <div class="download-card">
+              <h3>ARMv7 APK</h3>
+              <p>For compatible older Android smartphones with 32-bit processors.</p>
+              <a class="apk-button"
+                href="https://github.com/Roshandip/Truzen-website/releases/download/v1.0.0/truzen-armv7.apk">Download
+                ARMv7</a>
+            </div>
+
+            <div class="download-card">
+              <h3>Universal APK</h3>
+              <p>Combined APK for supported Android processor architectures.</p>
+              <a class="apk-button"
+                href="https://github.com/Roshandip/Truzen-website/releases/download/v1.0.0/truzen-universal.apk">Download
+                Universal</a>
+            </div>
+          </div>
+
+          <p class="download-note">Android only. Choose the APK compatible with your device. Only download Truzen from
+            official sources.</p>
+
+          <div class="update-card">
+            <div>
+              <div class="update-label">APP UPDATES</div>
+              <strong>Stay up to date with Truzen</strong>
+              <p>View official version information and available releases.</p>
+            </div>
+            <a class="btn btn-outline" href="https://github.com/Roshandip/Truzen-website/releases/tag/v1.0.0"
+              target="_blank" rel="noopener noreferrer">View Official Release ↗</a>
+          </div>
+
+          <div style="text-align:center;margin-top:28px">
+            <button type="button" class="btn btn-primary" id="downloadOpenApp">Open Truzen App ↗</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container">
-
       <div class="footer-main">
-
         <div>
-          <a href="#home" class="brand">
-            <span class="brand-mark"></span>
-            <span>Truzen</span>
-          </a>
-
-          <p class="footer-description">
-            Connect your world. Share your moments,
-            discover content and build connections.
+          <a href="#home" class="brand"><span class="brand-mark"></span><span>Truzen</span></a>
+          <p class="footer-description">Connect your world. Share your moments, discover content and build connections.
           </p>
         </div>
-
         <div class="footer-links">
           <a href="#home">Home</a>
           <a href="#features">Features</a>
@@ -1257,48 +1350,27 @@
           <a href="#security">Security</a>
           <a href="#download">Download</a>
         </div>
-
       </div>
-
-      <div class="footer-bottom">
-        © 2026 Truzen. All rights reserved.
-        <br>
-        Connect · Share · Explore
-      </div>
-
+      <div class="footer-bottom">© 2026 Truzen. All rights reserved.<br>Connect · Share · Explore</div>
     </div>
   </footer>
 
   <script>
-    /* =====================================
-       TRUZEN WEBSITE CONFIGURATION
-    ===================================== */
+    "use strict";
 
     const TRUZEN_CONFIG = {
-      // Android application package name
       androidPackage: "com.truzenlite",
-
-      // Existing Truzen app link domain
       appDomain: "truzen.web.app",
-
-      // Website fallback URL
       websiteUrl: "https://roshandip.github.io/Truzen-website/"
     };
 
-
-    /* =====================================
-       REFERRAL LINK HANDLING
-    ===================================== */
-
+    // Read and validate an optional referral code from ?ref=
     const urlParams = new URLSearchParams(window.location.search);
     const rawReferralCode = urlParams.get("ref");
-
     let referralCode = "";
 
     if (rawReferralCode) {
       const cleanedCode = rawReferralCode.trim().toUpperCase();
-
-      // Accept only the expected 16-character referral format.
       if (/^[A-Z0-9]{16}$/.test(cleanedCode)) {
         referralCode = cleanedCode;
       }
@@ -1308,25 +1380,18 @@
     const referralCodeElement = document.getElementById("referralCode");
     const referralMessage = document.getElementById("referralMessage");
 
-    if (referralCode) {
+    if (referralCode && referralPanel && referralCodeElement) {
       referralPanel.classList.add("visible");
       referralCodeElement.textContent = referralCode;
     }
 
     function getReferralQuery() {
-      return referralCode
-        ? "?ref=" + encodeURIComponent(referralCode)
-        : "";
+      return referralCode ? "?ref=" + encodeURIComponent(referralCode) : "";
     }
 
     function getInviteLink() {
       return TRUZEN_CONFIG.websiteUrl + getReferralQuery();
     }
-
-
-    /* =====================================
-       COPY FUNCTIONS
-    ===================================== */
 
     async function copyText(text) {
       try {
@@ -1344,7 +1409,6 @@
 
         const copied = document.execCommand("copy");
         textArea.remove();
-
         return copied;
       } catch (error) {
         console.error("Copy failed:", error);
@@ -1372,32 +1436,17 @@
         : "Could not copy the link. Please try again.";
     });
 
-
-    /* =====================================
-       OPEN TRUZEN APP
-    ===================================== */
-
     function openTruzenApp() {
       const fallbackUrl = getInviteLink();
 
-      // The referral query is passed to the existing app link domain.
       const appUrl =
-        "intent://" +
-        TRUZEN_CONFIG.appDomain +
-        "/" +
-        getReferralQuery() +
-        "#Intent;" +
-        "scheme=https;" +
-        "package=" + TRUZEN_CONFIG.androidPackage + ";" +
-        "S.browser_fallback_url=" + encodeURIComponent(fallbackUrl) +
-        ";end";
+        "intent://" + TRUZEN_CONFIG.appDomain + "/" + getReferralQuery() +
+        "#Intent;scheme=https;package=" + TRUZEN_CONFIG.androidPackage +
+        ";S.browser_fallback_url=" + encodeURIComponent(fallbackUrl) + ";end";
 
-      const isAndroid = /Android/i.test(navigator.userAgent);
-
-      if (isAndroid) {
+      if (/Android/i.test(navigator.userAgent)) {
         window.location.href = appUrl;
       } else {
-        // On desktop and non-Android devices, show the website.
         window.location.href = fallbackUrl;
       }
     }
@@ -1405,19 +1454,14 @@
     document.getElementById("heroOpenApp").addEventListener("click", openTruzenApp);
     document.getElementById("downloadOpenApp").addEventListener("click", openTruzenApp);
 
-
-    /* =====================================
-       MOBILE NAVIGATION
-    ===================================== */
-
+    // Mobile navigation
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
     menuToggle.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("open");
-
       menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.textContent = isOpen ? "✕" : "☰";
+      menuToggle.textContent = isOpen ? "×" : "☰";
     });
 
     navLinks.querySelectorAll("a").forEach(link => {
@@ -1428,11 +1472,7 @@
       });
     });
 
-
-    /* =====================================
-       INTERACTIVE DEMO SCREEN SWITCHER
-    ===================================== */
-
+    // Interactive demo screen switcher
     const demoTabs = document.querySelectorAll(".demo-tab");
     const demoScenes = document.querySelectorAll(".demo-scene");
     const demoStatus = document.getElementById("demoStatus");
@@ -1459,11 +1499,7 @@
       });
     });
 
-
-    /* =====================================
-       ACTIVE NAVIGATION WHILE SCROLLING
-    ===================================== */
-
+    // Highlight the navigation item for the section currently in view
     const pageSections = document.querySelectorAll("main section[id]");
     const navigationLinks = document.querySelectorAll(".nav-links a[href^='#']");
 
@@ -1479,14 +1515,11 @@
             });
           }
         });
-      }, {
-        rootMargin: "-30% 0px -60% 0px"
-      });
+      }, { rootMargin: "-30% 0px -60% 0px" });
 
       pageSections.forEach(section => observer.observe(section));
     }
   </script>
-
 </body>
 
 </html>
